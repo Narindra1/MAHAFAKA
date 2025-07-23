@@ -1,5 +1,5 @@
 <script setup>
-import { login } from "../services/authentification";
+import { login } from "../services/auth";
 import { onMounted, reactive, ref } from "vue";
 
 const responseLogin = ref({
