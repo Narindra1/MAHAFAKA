@@ -6,40 +6,44 @@ const responseSignIn = ref({
   status: null,
   message: "",
 });
+let code = ref("");
 const responseForgotPassword = ref({
   status: null,
   message: "",
 });
-onMounted(async function () {
+
+async function sendMail() {
   let emailUser = reactive({
-    email: "tutu@yopmail.com",
+    email: "bebe@yopmail.com",
   });
   responseForgotPassword.value = await setForgotPassword(emailUser);
   console.log(responseForgotPassword);
-});
+}
+
+onMounted(async function () {});
 
 // onMounted(function () {
 //   let userData = reactive({
-//     nom: "Tuto",
-//     pseudo: "tu",
+//     nom: "bebe",
+//     pseudo: "be",
 //     genre: "M",
-//     phone: "0343322210",
-//     annee_naissance: "2002",
-//     lieu_residence: "La Reunion",
-//     email: "tutu@yopmail.com",
-//     password: "tutupetit",
+//     phone: "0343434434",
+//     annee_naissance: "1978",
+//     lieu_residence: "Paris",
+//     email: "bebe@yopmail.com",
+//     password: "bebeParis",
 //   });
 // });
 // async function signin() {
 //   let userData = reactive({
-//     nom: "Tuto",
-//     pseudo: "tu",
+//     nom: "bebe",
+//     pseudo: "be",
 //     genre: "M",
-//     phone: "0343322210",
-//     annee_naissance: "2002",
-//     lieu_residence: "La Reunion",
-//     email: "tutu@yopmail.com",
-//     password: "tutupetit",
+//     phone: "0343434434",
+//     annee_naissance: "1978",
+//     lieu_residence: "Paris",
+//     email: "bebe@yopmail.com",
+//     password: "bebeParis",
 //   });
 //   responseSignIn.value = await signIn(userData);
 //   console.log(responseSignIn);
@@ -47,5 +51,8 @@ onMounted(async function () {
 </script>
 <template>
   <h3>Mot de passe oublié</h3>
-  <!-- <button @click="signin">save</button> -->
+  <button @click="signin">save</button>
+  <button @click="sendMail">sendMail</button>
+  <button @click="signin">validCode</button>
+  <input type="text" v-model="code" />
 </template>
