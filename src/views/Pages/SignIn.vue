@@ -1,21 +1,7 @@
 <script setup>
-import { login } from "../services/auth";
+import { login } from "../../services/auth";
 import { reactive, ref } from "vue";
 
-// const responseLogin = ref({
-//   status: null,
-//   message: "Chargement en cours...",
-// });
-
-// async function Login() {
-//   let auth = reactive({
-//     email: "",
-//     password: "",
-//     a_vis: 0,
-//   });
-//   responseLogin.value = await login(auth);
-//   console.log(responseLogin);
-// }
 const showPassword = ref(false);
 const errorMessage = ref("");
 let authData = reactive({

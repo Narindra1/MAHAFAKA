@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import home from "../views/home.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,33 +6,38 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: home,
+      component: () => import("../views/Pages/Home.vue"),
     },
     {
       path: "/profil",
       name: "profil",
-      component: () => import("../views/profil.vue"),
+      component: () => import("../views/Profil.vue"),
     },
     {
       path: "/password",
       name: "password",
-      component: () => import("../views/password.vue"),
+      component: () => import("../views/Password.vue"),
     },
 
     {
       path: "/newPassword",
       name: "newPassword",
-      component: () => import("../views/newPassword.vue"),
+      component: () => import("../views/NewPassword.vue"),
     },
     {
       path: "/logout",
       name: "logout",
-      component: () => import("../views/logout.vue"),
+      component: () => import("../views/Logout.vue"),
+    },
+    {
+      path: "/signup",
+      name: "signup",
+      component: () => import("../views/Pages/SignUp.vue"),
     },
     {
       path: "/signin",
       name: "signin",
-      component: () => import("../views/Pages/Signin.vue"),
+      component: () => import("../views/Pages/SignIn.vue"),
     },
   ],
 });

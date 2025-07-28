@@ -33,7 +33,7 @@ function failResponseAuth(data) {
 
 //==========================================================================================
 
-// const signIn = async (userData) => {
+// const signUp = async (userData) => {
 //   const res = await axios.post("https://dev.mahafaka.com/api/auth/register", {
 //     nom: userData.nom,
 //     pseudo: userData.pseudo,
@@ -54,7 +54,7 @@ function failResponseAuth(data) {
 //     return failResponseAuth("un erreur s'est produit");
 //   }
 // };
-const signIn = async (userData) => {
+const signUp = async (userData) => {
   const res = await apiClient.execute({
     url: "/api/auth/register",
     method: "POST",
@@ -230,4 +230,4 @@ const logout = async () => {
   return response;
 };
 
-export { login, setForgotPassword, resetPassword, signIn, logout };
+export { login, setForgotPassword, resetPassword, signUp, logout };
