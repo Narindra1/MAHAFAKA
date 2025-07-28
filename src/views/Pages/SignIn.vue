@@ -3,7 +3,7 @@ import { login } from "../../services/auth";
 import { reactive, ref } from "vue";
 
 const showPassword = ref(false);
-const errorMessage = ref("");
+let errorMessage = ref("");
 let authData = reactive({
   email: "",
   password: "",
@@ -11,15 +11,13 @@ let authData = reactive({
 });
 
 const Login = async () => {
-  try {
-    errorMessage.value = "";
-    const response = await login(authData);
-
-    console.log("login response", response);
-  } catch (error) {
-    console.log(error);
-    errorMessage.value =
-      error.response?.data?.message || "Erreur de connexion.";
+  const response = await login(authData);
+  console.log(response);
+  if (response.status == true) {
+    console.log("connexion effectuée avec succès");
+  } else {
+    errorMessage.value = "email ou mot de passe incorrecte";
+    console.log(errorMessage.value);
   }
 };
 </script>
@@ -47,7 +45,7 @@ const Login = async () => {
               </p>
             </div>
             <div>
-              <form>
+              <form @submit.prevent="Login">
                 <div class="space-y-5">
                   <!-- Email -->
                   <div>
@@ -79,6 +77,7 @@ const Login = async () => {
                     <div class="relative">
                       <input
                         name="password"
+                        id="password"
                         :type="showPassword ? 'text' : 'password'"
                         placeholder="Enter your password"
                         class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pl-4 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
