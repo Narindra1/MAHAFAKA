@@ -8,10 +8,6 @@ let responseLogout = reactive({
   status: null,
 });
 
-// onMounted(function () {
-//   responseLogoutValue = await logout();
-//   console.log(responseLogoutValue);
-// });
 async function Logout() {
   responseLogout = await logout();
   console.log(responseLogout);

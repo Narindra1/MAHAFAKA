@@ -1,16 +1,24 @@
 <script setup>
 import { resetPassword } from "../services/auth";
-import { onMounted, ref, reactive } from "vue";
+import { reactive } from "vue";
 
-onMounted(async function () {
+// onMounted(async function () {
+//   let newData = reactive({
+//     code_validation: "jZK2Wm",
+//     new_password: "bebeto",
+//   });
+//   let responseNewPassword = await resetPassword(newData);
+//   console.log(responseNewPassword);
+// });
+async function ResetPassword() {
   let newData = reactive({
-    code_validation: "jZK2Wm",
+    code_validation: "jUwfbe",
     new_password: "bebeto",
   });
   let responseNewPassword = await resetPassword(newData);
   console.log(responseNewPassword);
-});
+}
 </script>
 <template>
-  <p>Nouveau mot de passe</p>
+  <button @click="ResetPassword">Nouveau mot de passe</button>
 </template>

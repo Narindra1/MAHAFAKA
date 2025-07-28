@@ -49,7 +49,7 @@ function failResponseAuth(data) {
 
 //   if (httpRequestStatus == 200 && responseData.status == 1) {
 //     saveSuccessLogin(responseData.data.token);
-//     return successResponseAuth("félicitation, vous êtes bien enregistrer");
+//     return successResponseAuth("félicitation, vous êtes bien enregistrerfélicitation, vous êtes bien enregistrer");
 //   } else {
 //     return failResponseAuth("un erreur s'est produit");
 //   }
@@ -69,11 +69,12 @@ const signIn = async (userData) => {
       password: userData.password,
     },
   });
-  const response = {
-    data: res.data,
-    status: res.success,
-  };
-  return response;
+  if (res.success) {
+    saveSuccessLogin(res.data.token);
+    return successResponseAuth("félicitation, vous êtes bien enregistrer");
+  } else {
+    return failResponseAuth("un erreur s'est produit");
+  }
 };
 
 //==========================================================================================
@@ -92,7 +93,7 @@ const signIn = async (userData) => {
 //     saveSuccessLogin(responseData.data.token);
 //     return successResponseAuth("connexion effectué avec succès");
 //   } else {
-//     return failResponseAuth("email ou mot de passe invalide");
+//     return failResponseAuth("email ou mot de passe invalide")
 //   }
 // };
 const login = async (authData) => {
@@ -105,18 +106,13 @@ const login = async (authData) => {
       a_vis: authData.a_vis,
     },
   });
+  console.log("auth response", res);
   if (res.success) {
     saveSuccessLogin(res.data.token);
     return successResponseAuth("connexion effectué avec succès");
   } else {
     return failResponseAuth("email ou mot de passe invalide");
   }
-
-  const response = {
-    data: res.data,
-    status: res.success,
-  };
-  return response;
 };
 
 //==========================================================================================

@@ -36,11 +36,8 @@ export const apiClient = {
       this.responseTreatment(response);
       return this.presentation(response);
     } catch (error) {
-      console.log({
-        error: error.message,
-        status: error.response?.status,
-      });
-      return null;
+      console.log("catch apiclientexecute", error.response);
+      return this.presentation(error.response);
     }
   },
   responseTreatment(response) {},
