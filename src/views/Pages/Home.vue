@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import AppLayout from "../Layout/AppLayout.vue";
+</script>
 <template>
-  <h1>HOME</h1>
+  <AppLayout>
+    <div>
+      <p class="flex items-center justify-center">BIENVENUE A MAHAFAKA</p>
+    </div>
+  </AppLayout>
 </template>
