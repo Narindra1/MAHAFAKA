@@ -4,7 +4,10 @@
     class="flex justify-between items-center bg-gray-100 min-h-[60px] w-full p-5"
   >
     <div class="py-2 px-3 flex gap-3 flex items-center">
-      <img src="" alt="logo-mahafaka" />
+      <div class="h-[40px] w-[40px]">
+        <img src="../../../../public/img/ic_mahafaka.png" alt="logo-mahafaka" />
+      </div>
+
       <p class="text-2xl text-orange-500">Mahafaka</p>
     </div>
     <div

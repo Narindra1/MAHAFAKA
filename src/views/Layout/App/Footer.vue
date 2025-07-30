@@ -1,11 +1,18 @@
 <script setup></script>
 <template>
   <div class="bg-gray-900 text-gray-50 min-h-[200px] w-full">
-    <div class="pt-8 flex justify-evenly gap-5 items-center">
+    <div
+      class="pt-8 flex flex-col md:flex-row justify-evenly gap-5 items-center"
+    >
       <div>
-        <p>Logo Mahafaka</p>
+        <p class="h-[100px] w-[100px]">
+          <img
+            src="../../../../public/img/ic_mahafaka.png"
+            alt="logo mahafaka"
+          />
+        </p>
       </div>
-      <div class="flex flex-col gap-5">
+      <div class="flex flex-col gap-3">
         <div class="flex items-center text-xl gap-2 font-bold">
           <i class="fa-regular fa-file-lines"></i>
           <p>A propos</p>
@@ -18,7 +25,7 @@
           économique des Malagasy.
         </p>
       </div>
-      <div class="flex gap-5 flex-col">
+      <div class="flex gap-3 flex-col">
         <div class="flex items-center gap-2 text-xl font-bold">
           <i class="fa-regular fa-envelope"></i>
           <p>Contact</p>
