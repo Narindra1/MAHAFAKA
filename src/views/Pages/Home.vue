@@ -1,6 +1,8 @@
 <script setup>
 import AppLayout from "../Layout/AppLayout.vue";
 import Annonce from "../../components/molecules/Annonce.vue";
+import MenuItem from "../../components/molecules/MenuItem.vue";
+import { menus } from "../../data/menu";
 import { reactive } from "vue";
 
 const annonce = reactive({
@@ -44,6 +46,11 @@ const annonce = reactive({
   <AppLayout>
     <div class="w-[30vw] p-2">
       <Annonce :annonce="annonce" :detailed="true" />
+    </div>
+    <div class="p-2 flex gap-2 justify-start items-start">
+      <template class="" v-for="(menu, index) in menus" :key="index">
+        <MenuItem :menu="menu" />
+      </template>
     </div>
   </AppLayout>
 </template>
