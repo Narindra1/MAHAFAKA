@@ -1,5 +1,5 @@
 <script setup>
-import { logout } from "../services/auth";
+import { logout } from "../../services/auth";
 import { reactive, onMounted } from "vue";
 
 let responseLogout = reactive({

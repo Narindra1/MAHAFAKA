@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, ref } from "vue";
-import { setForgotPassword } from "../services/auth";
+import { setForgotPassword } from "../../services/auth";
 
 let code = ref("");
 const responseForgotPassword = ref({

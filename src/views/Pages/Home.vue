@@ -2,55 +2,65 @@
 import AppLayout from "../Layout/AppLayout.vue";
 import Annonce from "../../components/molecules/Annonce.vue";
 import MenuItem from "../../components/molecules/MenuItem.vue";
-import { menus } from "../../data/menu";
-import { reactive } from "vue";
-
-const annonce = reactive({
-  id: 374,
-  titre: "Telma",
-  lieu: "Antananarivo",
-  contact: "0340000800",
-  description_courte: "Telecom Malagasy",
-  description_detaille:
-    "Telma, 1er opérateur téléphonique à Madagascar, compte aussi parmi les importants fournisseurs d’accès à internet de l’île.",
-  limited_date: "2025-06-07T10:19:10.000000Z",
-  created_at: "2025-05-07T07:14:36.000000Z",
-  website_url: null,
-  is_website_pub: 0,
-  parrain_numero: null,
-  is_active: 1,
-  hasLike: null,
-  hasFavourite: null,
-  pdf_viewer_url: "",
-  menu: {
-    id: 1,
-    name: "telecommunication",
-  },
-  auteur_basic: {
-    id: 4,
-    pseudo: "admin",
-    avatarUrl:
-      "https://dev.mahafaka.com/images/avatar/Lapin_rabbit_10,000Ar.jpg",
-  },
-  images: [
-    {
-      id: 1062,
-      url: "https://dev.mahafaka.com/storage/images/menus/quotidien/2025-05-08_03-39-58-681bfd5e21c88.jpeg",
-      url_min:
-        "https://dev.mahafaka.com/storage/images/menus/quotidien/2025-05-08_03-39-58-681bfd5e21c88_min.jpeg",
-    },
-  ],
-});
+import Card from "../../components/molecules/Card.vue";
+import AnnonceDetail from "../../components/molecules/AnnonceDetail.vue";
+import AnnonceGroup from "../../components/molecules/AnnonceGroup.vue";
+import AnnonceMin from "../../components/molecules/AnnonceMin.vue";
+import { menu } from "../../data/menu";
+import { sousmenus } from "../../data/sousMenu";
+import { annonces } from "../../data/annonce";
 </script>
 <template>
   <AppLayout>
-    <div class="w-[30vw] p-2">
-      <Annonce :annonce="annonce" :detailed="true" />
+    <!--<div class="w-[30vw] p-2">
+      <Annonce :annonce="annonces" :detailed="true" />
     </div>
-    <div class="p-2 flex gap-2 justify-start items-start">
+    <div class="w-[30vw] p-2">
+      <AnnonceDetail :annonce="annonces" />
+    </div>
+    <div class="w-[30vw] p-2">
+      <AnnonceMin :annonce="annonces" />
+    </div>
+    <div class="w-[30vw] p-2">
+      <Card>
+        <template #img v-for="(annonce, index) in annonces" :key="index">
+          <img
+            :src="annonce.images[0]?.url"
+            alt="Annonce"
+            class="w-full aspect-[16/9]"
+        /></template>
+        <template #titre>{{ annonces.titre }}</template>
+        <template #menu>{{ annonces.menu.name }}</template>
+        <template #body
+          ><p>par {{ annonces.auteur_basic.pseudo }}</p>
+          <p>- Il y a {{ "7 heures" }}</p>
+        </template>
+        <template #description>
+          {{ annonce.description_detaille }}
+        </template>
+      </Card>
+    </div> -->
+    <AnnonceGroup>
+      <template #AnnonceHeader>{{ menu[0].nom }}</template>
+      <template #AnnonceMenu>
+        <MenuItem
+          v-for="(menu, index) in sousmenus"
+          :key="index"
+          :sousmenu="menu"
+        />
+      </template>
+      <template #AnnonceList>
+        <AnnonceMin
+          v-for="(annonce, index) in annonces"
+          :key="index"
+          :annonce="annonce"
+        />
+      </template>
+    </AnnonceGroup>
+    <!-- <div class="p-2 flex gap-2 justify-start items-start">
       <template class="" v-for="(menu, index) in menus" :key="index">
         <MenuItem :menu="menu" />
       </template>
-    </div>
+    </div> -->
   </AppLayout>
 </template>

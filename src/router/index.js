@@ -11,23 +11,23 @@ const router = createRouter({
     {
       path: "/profil",
       name: "profil",
-      component: () => import("../views/Profil.vue"),
+      component: () => import("../views/Pages/Profil.vue"),
     },
     {
       path: "/password",
       name: "password",
-      component: () => import("../views/Password.vue"),
+      component: () => import("../views/Pages/Password.vue"),
     },
 
     {
       path: "/newPassword",
       name: "newPassword",
-      component: () => import("../views/NewPassword.vue"),
+      component: () => import("../views/Pages/NewPassword.vue"),
     },
     {
       path: "/logout",
       name: "logout",
-      component: () => import("../views/Logout.vue"),
+      component: () => import("../views/Pages/Logout.vue"),
     },
     {
       path: "/signup",

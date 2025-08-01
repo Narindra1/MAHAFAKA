@@ -1,5 +1,5 @@
 <script setup>
-import { resetPassword } from "../services/auth";
+import { resetPassword } from "../../services/auth";
 import { reactive } from "vue";
 
 // onMounted(async function () {

@@ -11,7 +11,7 @@
       <p class="text-2xl text-orange-500">Mahafaka</p>
     </div>
     <div
-      class="relative bg-gray-200 flex justify-between items-center gap-8 w-[700px] h-[42px] rounded-lg text-lg"
+      class="relative bg-gray-200 flex justify-between items-center gap-8 w-[700px] h-[42px] rounded-lg text-lg text-gray-800"
     >
       <div class="w-full">
         <div
@@ -31,7 +31,7 @@
         <i class="fa-solid fa-sliders"></i>
       </button>
     </div>
-    <div class="flex justify-between gap-6 px-3 py-2 text-lg">
+    <div class="flex justify-between gap-6 px-3 py-2 text-lg text-gray-900">
       <span> <i class="fa-regular fa-circle-user"></i> </span>
       <span> <i class="fa-regular fa-bell"></i> </span>
       <span><i class="fa-solid fa-gear"></i></span>
