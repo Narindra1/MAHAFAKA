@@ -7,7 +7,7 @@ import Footer from "./App/Footer.vue";
     <div class="">
       <NavBar />
     </div>
-    <div class="grow-1">
+    <div class="grow-1 bg-gray-50">
       <slot></slot>
     </div>
     <div class="">

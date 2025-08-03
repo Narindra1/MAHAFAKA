@@ -9,6 +9,9 @@ import AnnonceMin from "../../components/molecules/AnnonceMin.vue";
 import { menu } from "../../data/menu";
 import { sousmenus } from "../../data/sousMenu";
 import { annonces } from "../../data/annonce";
+import CarrouselMenu from "../../components/molecules/CarrouselMenu.vue";
+import Partenaire from "../../components/molecules/Partenaire.vue";
+import { partenaires } from "../../data/partenaire";
 </script>
 <template>
   <AppLayout>
@@ -40,6 +43,13 @@ import { annonces } from "../../data/annonce";
         </template>
       </Card>
     </div> -->
+    <div class="flex gap-5 py-5 px-50">
+      <div v-for="(partenaire, index) in partenaires" :key="index">
+        <Partenaire :partenaire="partenaire" />
+      </div>
+    </div>
+    <CarrouselMenu />
+
     <AnnonceGroup>
       <template #AnnonceHeader>{{ menu[0].nom }}</template>
       <template #AnnonceMenu>

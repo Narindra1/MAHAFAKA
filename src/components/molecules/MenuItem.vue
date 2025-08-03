@@ -23,7 +23,7 @@ const childCount = props.sousmenu.child.length;
         class="cursor-pointer"
       >
         <i
-          class="fa-solid"
+          class="fa-solid text-zinc-900"
           :class="dropdownOpen ? 'fa-angle-up' : 'fa-angle-down'"
         ></i>
       </span>
@@ -33,7 +33,7 @@ const childCount = props.sousmenu.child.length;
       <p
         v-for="(childSousMenu, i) in sousmenu.child"
         :key="i"
-        class="rounded-lg p-1 bg-gray-200 text-center"
+        class="rounded-lg p-1 bg-gray-200 text-center text-zinc-900"
       >
         {{ childSousMenu.nom }}
       </p>
