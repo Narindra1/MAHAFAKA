@@ -4,7 +4,7 @@ import Footer from "./App/Footer.vue";
 </script>
 <template>
   <div class="h-screen w-screen bg-gray-200 flex flex-col">
-    <div class="">
+    <div class="w-full">
       <NavBar />
     </div>
     <div class="grow-1 bg-gray-50">

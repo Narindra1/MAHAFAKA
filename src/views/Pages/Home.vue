@@ -1,76 +1,62 @@
 <script setup>
 import AppLayout from "../Layout/AppLayout.vue";
-import Annonce from "../../components/molecules/Annonce.vue";
 import MenuItem from "../../components/molecules/MenuItem.vue";
-import Card from "../../components/molecules/Card.vue";
-import AnnonceDetail from "../../components/molecules/AnnonceDetail.vue";
 import AnnonceGroup from "../../components/molecules/AnnonceGroup.vue";
 import AnnonceMin from "../../components/molecules/AnnonceMin.vue";
-import { menu } from "../../data/menu";
-import { sousmenus } from "../../data/sousMenu";
-import { annonces } from "../../data/annonce";
-import CarrouselMenu from "../../components/molecules/CarrouselMenu.vue";
-import Partenaire from "../../components/molecules/Partenaire.vue";
+import Partenaire from "../../components/molecules/PartenaireList.vue";
 import { partenaires } from "../../data/partenaire";
+import GrandMenuList from "../../components/molecules/GrandMenuList.vue";
+import { menusGroups } from "../../data/menuGroups";
+import MenuSpecial from "../../components/molecules/MenuSpecial.vue";
 </script>
 <template>
   <AppLayout>
-    <!--<div class="w-[30vw] p-2">
-      <Annonce :annonce="annonces" :detailed="true" />
-    </div>
-    <div class="w-[30vw] p-2">
-      <AnnonceDetail :annonce="annonces" />
-    </div>
-    <div class="w-[30vw] p-2">
-      <AnnonceMin :annonce="annonces" />
-    </div>
-    <div class="w-[30vw] p-2">
-      <Card>
-        <template #img v-for="(annonce, index) in annonces" :key="index">
-          <img
-            :src="annonce.images[0]?.url"
-            alt="Annonce"
-            class="w-full aspect-[16/9]"
-        /></template>
-        <template #titre>{{ annonces.titre }}</template>
-        <template #menu>{{ annonces.menu.name }}</template>
-        <template #body
-          ><p>par {{ annonces.auteur_basic.pseudo }}</p>
-          <p>- Il y a {{ "7 heures" }}</p>
+    <div class="w-full flex justify-center">
+      <!-- <div class="flex flex-col gap-4 p-5 max-w-[800px]">
+        <div class="flex gap-4">
+          <template
+            v-for="(partenaire, index) in partenaires.slice(0, 6)"
+            :key="index"
+          >
+            <Partenaire :partenaire="partenaire" />
+          </template>
+        </div>
+        <div class="flex gap-4">
+          <template
+            v-for="(partenaire, index) in partenaires.slice(0, 6)"
+            :key="index"
+          >
+            <Partenaire :partenaire="partenaire" />
+          </template>
+        </div>
+      </div> -->
+      <div
+        class="grid sm:grid-cols-6 grid-cols-4 sm:grid-rows-2 grid-rows-3 sm:gap-x-4 gap-x-2 gap-y-2 px-2 py-[30px] max-w-[800px]"
+      >
+        <template v-for="(partenaire, index) in partenaires" :key="index">
+          <Partenaire :partenaire="partenaire" />
         </template>
-        <template #description>
-          {{ annonce.description_detaille }}
-        </template>
-      </Card>
-    </div> -->
-    <div class="flex gap-5 py-5 px-50">
-      <div v-for="(partenaire, index) in partenaires" :key="index">
-        <Partenaire :partenaire="partenaire" />
       </div>
     </div>
-    <CarrouselMenu />
+    <GrandMenuList />
+    <MenuSpecial />
 
-    <AnnonceGroup>
-      <template #AnnonceHeader>{{ menu[0].nom }}</template>
+    <AnnonceGroup v-for="menuGroup in menusGroups">
+      <template #AnnonceHeader>{{ menuGroup.nom }}</template>
       <template #AnnonceMenu>
         <MenuItem
-          v-for="(menu, index) in sousmenus"
+          v-for="(menu, index) in menuGroup.child"
           :key="index"
           :sousmenu="menu"
         />
       </template>
       <template #AnnonceList>
         <AnnonceMin
-          v-for="(annonce, index) in annonces"
+          v-for="(annonce, index) in menuGroup.annonces_recent"
           :key="index"
           :annonce="annonce"
         />
       </template>
     </AnnonceGroup>
-    <!-- <div class="p-2 flex gap-2 justify-start items-start">
-      <template class="" v-for="(menu, index) in menus" :key="index">
-        <MenuItem :menu="menu" />
-      </template>
-    </div> -->
   </AppLayout>
 </template>

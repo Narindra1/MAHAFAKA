@@ -39,11 +39,6 @@ const router = createRouter({
       name: "signin",
       component: () => import("../views/Pages/SignIn.vue"),
     },
-    {
-      path: "/carousel",
-      name: "carousel",
-      component: () => import("../components/molecules/CarrouselMenu.vue"),
-    },
   ],
 });
 

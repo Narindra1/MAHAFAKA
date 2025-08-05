@@ -10,6 +10,6 @@ const props = defineProps({
   <img
     :src="props.partenaire.images[0].url"
     alt="Annonce"
-    class="rounded-2xl"
+    class="rounded-lg w-[105px] h-[60px]"
   />
 </template>

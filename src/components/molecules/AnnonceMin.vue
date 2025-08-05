@@ -14,9 +14,15 @@ const props = defineProps({
       ><img
         :src="props.annonce.images[0].url"
         alt="Annonce"
-        class="w-full aspect-[16/9]"
+        class="w-full aspect-[20/9]"
     /></template>
     <template #titre>{{ props.annonce.titre }}</template>
     <template #menu>{{ props.annonce.menu.name }}</template>
   </Card>
 </template>
+
+<style>
+.cardBody {
+  display: none;
+}
+</style>
