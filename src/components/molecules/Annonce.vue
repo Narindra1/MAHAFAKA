@@ -23,7 +23,7 @@ const props = defineProps({
     <div class="px-[1.2rem] py-[1rem] flex flex-col gap-1">
       <div class="flex justify-between items-center">
         <p class="text-black font-bold text-2xl">{{ annonce.titre }}</p>
-        <p class="bg-green-300 rounded-xl p-2 text-white text-sm">
+        <p class="bg-[#60e274] rounded-xl p-2 text-white text-sm">
           {{ annonce.menu.name }}
         </p>
       </div>
