@@ -39,6 +39,11 @@ const router = createRouter({
       name: "signin",
       component: () => import("../views/Pages/SignIn.vue"),
     },
+    {
+      path: "/breadcrumb",
+      name: "breadcrumb",
+      component: () => import("../components/molecules/Breadcrumb.vue"),
+    },
   ],
 });
 
