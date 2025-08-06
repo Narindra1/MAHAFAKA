@@ -1,14 +1,13 @@
 <script setup>
-import { signIn } from "../../services/auth";
+import { signUp } from "../../services/auth";
 import { ref, reactive } from "vue";
-import Header from "../components/organisms/header.vue";
 
 const responseSignIn = ref({
   status: null,
   message: "",
 });
 
-async function Signin() {
+async function signup() {
   let userData = reactive({
     nom: "mimi",
     pseudo: "mi",
@@ -19,13 +18,13 @@ async function Signin() {
     email: "mimi@yopmail.com",
     password: "Aumi02",
   });
-  responseSignIn.value = await signIn(userData);
+  responseSignIn.value = await signUp(userData);
   console.log(responseSignIn);
 }
 </script>
 <template>
   <div class>
-    <Header />
+    <h1>Hello</h1>
   </div>
-  <button @click="Signin">Envoyer</button>
+  <button @click="Signup">Envoyer</button>
 </template>
