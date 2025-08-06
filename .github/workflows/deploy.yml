@@ -49,6 +49,8 @@ jobs:
             echo "Directory contents : $(ls -la)"
             mv dist/* . 2>/dev/null || { echo "No files to move or dist empty"; }
             rm -rf dist 2>/dev/null || { echo "dist removal failed"; }
+            echo "Directory contents after cleanup: $(ls -la)"
             chmod -R 755 .
+            chowm www-data:www-data .
             echo "Directory contents after cleanup: $(ls -la)"
             echo "Deployment completed."
