@@ -1,21 +1,26 @@
 <script setup>
 import Breadcrumb from "primevue/breadcrumb";
-import { menusGroups } from "../../data/menuGroups";
 import { ref } from "vue";
 
+const props = defineProps({
+  menuGroup: {
+    type: Object,
+    required: true,
+  },
+});
 const home = ref({
   icon: "pi pi-home",
-  route: "/introduction",
+  route: "/",
 });
 const items = ref([
-  { label: menusGroups[0].nom },
-  { label: menusGroups[0].child[1].nom },
-  { label: menusGroups[0].child[1].child[0].nom },
+  { label: props.menuGroup[0].nom, route: "menu1" },
+  { label: props.menuGroup[0].child[1].nom, route: "menu2" },
+  { label: props.menuGroup[0].child[1].child[0].nom, route: "menu3" },
 ]);
 </script>
 
 <template>
-  <div class="card flex justify-center bg-[#FFC107]">
+  <div class="card flex justify-center bg-[#0000]">
     <Breadcrumb :home="home" :model="items">
       <template #item="{ item, props }">
         <router-link
@@ -26,7 +31,7 @@ const items = ref([
         >
           <a :href="href" v-bind="props.action" @click="navigate">
             <span :class="[item.icon, 'text-color']" />
-            <span class="text-primary font-semibold">{{ item.label }}</span>
+            <span class="text-black font-normal">{{ item.label }}</span>
           </a>
         </router-link>
         <a v-else :href="item.url" :target="item.target" v-bind="props.action">
@@ -41,5 +46,12 @@ const items = ref([
 <style scoped>
 .p-breadcrumb {
   background-color: transparent;
+}
+:deep(.p-breadcrumb-separator-icon) {
+  color: black !important;
+}
+
+:deep(.p-breadcrumb-item-link) {
+  color: black !important;
 }
 </style>

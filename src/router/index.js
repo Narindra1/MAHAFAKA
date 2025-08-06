@@ -40,9 +40,19 @@ const router = createRouter({
       component: () => import("../views/Pages/SignIn.vue"),
     },
     {
-      path: "/breadcrumb",
-      name: "breadcrumb",
-      component: () => import("../components/molecules/Breadcrumb.vue"),
+      path: "/menu1",
+      name: "menu1",
+      component: () => import("../components/molecules/Menu1.vue"),
+    },
+    {
+      path: "/menu2",
+      name: "menu2",
+      component: () => import("../components/molecules/Menu2.vue"),
+    },
+    {
+      path: "/menu3",
+      name: "menu3",
+      component: () => import("../components/molecules/Menu3.vue"),
     },
   ],
 });
