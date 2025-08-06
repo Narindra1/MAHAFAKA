@@ -42,7 +42,11 @@ jobs:
           script: |
             echo "Current directory: $(pwd)"
             cd /home/prod/client/mahafaka || { echo "Directory not found"; exit 1; }
-            echo "Directory contents before cleanup: $(ls -la)"
-            cd /home/prod/client/mahafaka/dist || { echo "Directory not found"; exit 1; }
-            echo "Directory contents before cleanup: $(ls -la)"
+            echo "Directory dist contents : $(ls -la dist)"
+            echo "Directory contents : $(ls -la)"
+            find /home/prod/client/mahafaka -maxdepth 1 -not -name "dist" -not -name "." -not -name ".." -exec rm -rf {} +
+            mv dist/* . 2>/dev/null || { echo "No files to move or dist empty"; }
+            rm -rf dist 2>/dev/null || { echo "dist removal failed"; }
             chmod -R 755 .
+            echo "Directory contents after cleanup: $(ls -la)"
+            echo "Deployment completed."
