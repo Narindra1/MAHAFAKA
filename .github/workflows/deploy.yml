@@ -24,6 +24,15 @@ jobs:
           NODE_ENV: production
         run: npm run build
 
+      - name: Upload dist to VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          source: "dist/*"
+          target: "/home/prod/client/mahafaka/"
+
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
@@ -31,9 +40,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           script: |
-            cd /home/prod/client/mahafaka
-            rm -rf *
-            echo "Contents of ~/temp-deploy/: $(ls -la ~/temp-deploy/)"
-            echo "Contents of ~/: $(ls -la ~/)"
-            cp -r ~/temp-deploy/* .
-            chmod -R 755 *
+            echo "Current directory: $(pwd)"
+            cd /home/prod/client/mahafaka || { echo "Directory not found"; exit 1; }
+            echo "Directory contents before cleanup: $(ls -la)"
+            chmod -R 755 .
