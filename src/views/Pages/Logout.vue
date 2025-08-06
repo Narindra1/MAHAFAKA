@@ -1,5 +1,5 @@
 <script setup>
-import { logout } from "../services/auth";
+import { logout } from "../../services/auth";
 import { reactive, onMounted } from "vue";
 
 let responseLogout = reactive({
@@ -8,10 +8,6 @@ let responseLogout = reactive({
   status: null,
 });
 
-// onMounted(function () {
-//   responseLogoutValue = await logout();
-//   console.log(responseLogoutValue);
-// });
 async function Logout() {
   responseLogout = await logout();
   console.log(responseLogout);
