@@ -45,6 +45,8 @@ jobs:
             echo "Directory dist contents : $(ls -la dist)"
             echo "Directory contents : $(ls -la)"
             find /home/prod/client/mahafaka -maxdepth 1 -not -name "dist" -not -name "." -not -name ".." -exec rm -rf {} +
+            echo "Directory dist contents : $(ls -la dist)"
+            echo "Directory contents : $(ls -la)"
             mv dist/* . 2>/dev/null || { echo "No files to move or dist empty"; }
             rm -rf dist 2>/dev/null || { echo "dist removal failed"; }
             chmod -R 755 .
