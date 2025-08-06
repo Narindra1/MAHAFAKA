@@ -43,4 +43,6 @@ jobs:
             echo "Current directory: $(pwd)"
             cd /home/prod/client/mahafaka || { echo "Directory not found"; exit 1; }
             echo "Directory contents before cleanup: $(ls -la)"
+            cd /home/prod/client/mahafaka/dist || { echo "Directory not found"; exit 1; }
+            echo "Directory contents before cleanup: $(ls -la)"
             chmod -R 755 .
