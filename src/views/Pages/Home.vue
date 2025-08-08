@@ -41,23 +41,24 @@ import MenuSpecial from "../../components/molecules/MenuSpecial.vue";
     <GrandMenuList />
 
     <MenuSpecial />
-
-    <AnnonceGroup v-for="menuGroup in menusGroups">
-      <template #AnnonceHeader>{{ menuGroup.nom }}</template>
-      <template #AnnonceMenu>
-        <MenuItem
-          v-for="(menu, index) in menuGroup.child"
-          :key="index"
-          :sousmenu="menu"
-        />
-      </template>
-      <template #AnnonceList>
-        <AnnonceMin
-          v-for="(annonce, index) in menuGroup.annonces_recent"
-          :key="index"
-          :annonce="annonce"
-        />
-      </template>
-    </AnnonceGroup>
+    <div class="p-5">
+      <AnnonceGroup v-for="menuGroup in menusGroups">
+        <template #AnnonceHeader>{{ menuGroup.nom }}</template>
+        <template #AnnonceMenu>
+          <MenuItem
+            v-for="(menu, index) in menuGroup.child"
+            :key="index"
+            :sousmenu="menu"
+          />
+        </template>
+        <template #AnnonceList>
+          <AnnonceMin
+            v-for="(annonce, index) in menuGroup.annonces_recent"
+            :key="index"
+            :annonce="annonce"
+          />
+        </template>
+      </AnnonceGroup>
+    </div>
   </AppLayout>
 </template>

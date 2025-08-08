@@ -6,7 +6,7 @@
     <!-- Img -->
     <slot name="img"></slot>
 
-    <div class="px-[.8rem] py-[.4rem] flex flex-col gap-1">
+    <div class="px-[.8rem] pt-[.3rem] flex flex-col gap-1">
       <div class="flex justify-between items-center">
         <p class="text-black font-bold text-sm">
           <!-- Titre -->
@@ -17,12 +17,12 @@
           <slot name="menu"></slot>
         </p>
       </div>
-      <div class="flex gap-2 text-lg mb-1 text-gray-400">
+      <div class="flex gap-1 text-sm text-gray-500">
         <!-- Body -->
         <slot name="body"></slot>
       </div>
 
-      <div class="text-lg font-normal text-stone-700">
+      <div class="text-sm font-normal text-stone-700">
         <p>
           <!-- Description -->
           <slot name="description"></slot>
