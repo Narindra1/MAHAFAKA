@@ -17,18 +17,19 @@ const props = defineProps({
   <Card>
     <template #img
       ><img
-        :src="props.annonce.images[0].url"
+        :src="annonce.images[0].url"
         alt="Annonce"
         class="w-full aspect-[16/9]"
     /></template>
-    <template #titre>{{ props.annonce.titre }}</template>
-    <template #menu>{{ props.annonce.menu.name }}</template>
+    <template #titre>{{ annonce.titre }}</template>
+    <template #menu>{{ annonce.menu.name }}</template>
     <template #body
-      ><p>par {{ props.annonce.auteur_basic.pseudo }}</p>
+      ><p>par {{ annonce.auteur_basic.pseudo }}</p>
       <p>- Il y a {{ "7 heures" }}</p>
     </template>
+
     <template #description>
-      {{ props.annonce.description_detaille }}
+      {{ annonce.description_courte }}
     </template>
   </Card>
 </template>

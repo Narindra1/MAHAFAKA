@@ -8,7 +8,6 @@ import { partenaires } from "../../data/partenaire";
 import GrandMenuList from "../../components/molecules/GrandMenuList.vue";
 import { menusGroups } from "../../data/menuGroups";
 import MenuSpecial from "../../components/molecules/MenuSpecial.vue";
-import Breadcrumb from "../../components/molecules/Breadcrumb.vue";
 </script>
 <template>
   <AppLayout>
@@ -40,28 +39,26 @@ import Breadcrumb from "../../components/molecules/Breadcrumb.vue";
       </div>
     </div>
     <GrandMenuList />
-    <div class="pt-3">
-      <Breadcrumb :menuGroup="menusGroups" />
-    </div>
 
     <MenuSpecial />
-
-    <AnnonceGroup v-for="menuGroup in menusGroups">
-      <template #AnnonceHeader>{{ menuGroup.nom }}</template>
-      <template #AnnonceMenu>
-        <MenuItem
-          v-for="(menu, index) in menuGroup.child"
-          :key="index"
-          :sousmenu="menu"
-        />
-      </template>
-      <template #AnnonceList>
-        <AnnonceMin
-          v-for="(annonce, index) in menuGroup.annonces_recent"
-          :key="index"
-          :annonce="annonce"
-        />
-      </template>
-    </AnnonceGroup>
+    <div class="p-5">
+      <AnnonceGroup v-for="menuGroup in menusGroups">
+        <template #AnnonceHeader>{{ menuGroup.nom }}</template>
+        <template #AnnonceMenu>
+          <MenuItem
+            v-for="(menu, index) in menuGroup.child"
+            :key="index"
+            :sousmenu="menu"
+          />
+        </template>
+        <template #AnnonceList>
+          <AnnonceMin
+            v-for="(annonce, index) in menuGroup.annonces_recent"
+            :key="index"
+            :annonce="annonce"
+          />
+        </template>
+      </AnnonceGroup>
+    </div>
   </AppLayout>
 </template>

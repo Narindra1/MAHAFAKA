@@ -14,13 +14,13 @@ const home = ref({
 });
 const items = ref([
   { label: props.menuGroup[0].nom, route: "menu1" },
-  { label: props.menuGroup[0].child[1].nom, route: "menu2" },
-  { label: props.menuGroup[0].child[1].child[0].nom, route: "menu3" },
+  // { label: props.menuGroup[0].child[1].nom, route: "menu2" },
+  // { label: props.menuGroup[0].child[1].child[0].nom, route: "menu3" },
 ]);
 </script>
 
 <template>
-  <div class="card flex justify-center bg-[#0000]">
+  <div class="card flex justify-center bg-[#0000] px-8 pt-2">
     <Breadcrumb :home="home" :model="items">
       <template #item="{ item, props }">
         <router-link
@@ -31,7 +31,7 @@ const items = ref([
         >
           <a :href="href" v-bind="props.action" @click="navigate">
             <span :class="[item.icon, 'text-color']" />
-            <span class="text-black font-normal">{{ item.label }}</span>
+            <span class="text-black font-bold">{{ item.label }}</span>
           </a>
         </router-link>
         <a v-else :href="item.url" :target="item.target" v-bind="props.action">
