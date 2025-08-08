@@ -17,12 +17,12 @@
           <slot name="menu"></slot>
         </p>
       </div>
-      <div class="cardBody flex gap-2 text-lg mb-1 text-gray-400">
+      <div class="flex gap-2 text-lg mb-1 text-gray-400">
         <!-- Body -->
         <slot name="body"></slot>
       </div>
 
-      <div class="cardBody text-lg font-normal text-stone-700">
+      <div class="text-lg font-normal text-stone-700">
         <p>
           <!-- Description -->
           <slot name="description"></slot>

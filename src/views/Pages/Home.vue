@@ -8,7 +8,6 @@ import { partenaires } from "../../data/partenaire";
 import GrandMenuList from "../../components/molecules/GrandMenuList.vue";
 import { menusGroups } from "../../data/menuGroups";
 import MenuSpecial from "../../components/molecules/MenuSpecial.vue";
-import Breadcrumb from "../../components/molecules/Breadcrumb.vue";
 </script>
 <template>
   <AppLayout>
@@ -40,9 +39,6 @@ import Breadcrumb from "../../components/molecules/Breadcrumb.vue";
       </div>
     </div>
     <GrandMenuList />
-    <div class="pt-3">
-      <Breadcrumb :menuGroup="menusGroups" />
-    </div>
 
     <MenuSpecial />
 
